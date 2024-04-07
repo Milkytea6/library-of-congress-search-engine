@@ -1,5 +1,12 @@
+body{
+    background: linear-gradient(to right, rgb(38, 38, 110), #333333);
+}
 #search-box{
     display: flex;
-    justify-content: center;
     align-items: center;
+    height: 100vh; 
+}
+#search-form-container{
+    border: 5px solid darkblue; 
+    background: linear-gradient(to left, rgb(38, 38, 110), #333333);
 }
