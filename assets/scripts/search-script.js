@@ -4,7 +4,7 @@ const searchFormEL = document.querySelector('#form-container');
 
 function getParams() {
     // Get the search params out of the URL (i.e. `?q=london&format=photo`) and convert it to an array (i.e. ['?q=london', 'format=photo'])
-    const searchParamsArray = document.loction.search.split("&");
+    const searchParamsArray = document.location.search.split("&");
 
     // Spliting the array again divided by "=" and pop will return the last value being the values for query and format.
     const query = searchParamsArray[0].split("=").pop;
@@ -51,6 +51,38 @@ function searchApi(query, format) {
         });
 }
 
+function printResults(resultObj) {
+    // Logs the object in the array from the fetch api data
+    console.log(resultObj);
+    // Create a div with the class of card
+    const resultCard = document.createElement('div');
+    resultCard.addClass('card');
+    // Create a div with the class of card-body
+    const resultBody = document.createElement('div');
+    resultBody.addClass('card-body');
+    // Sets the card title to the title in the object
+    const titleEl = document.createElement('h3');
+    titleEl.textContent = resultObj.title;
+    // Sets the date, subject, and description to the card body
+    const bodyContentEl = document.createElement('p');
+    bodyContentEl.textContent = `Date: ${resultObj.date}`;
+    
+    bodyContentEl.textContent += `Subject: ${resultObj.subject}`;
+    
+    bodyContentEl.textContent += `Description: ${resultObj.description[0]}`;
+    // Creates a link to the objects url for more information
+    const linkBtnEl = document.createElement('a');
+    linkBtnEl.textContent = 'Click here to learn more!';
+    linkBtnEl.setAttribute = ('href', resultObj.url);
+    linkBtnEl.addClass('btn');
+    // appneds the elements together
+    resultBody.append(titleEl, bodyContentEl, linkBtnEl);
+    resultCard.append(resultBody);
+
+    resultContentEl.append(resultCard);
+
+}
+
 
 
 // Copied from script.js because the form is on this page as well
@@ -73,3 +105,5 @@ function handleSearchFormSubmit(event) {
     location.assign(queryString);
 }
 searchForm.addEventListener('submit', handleSearchFormSubmit);
+// Called the GetParams at the end
+getParams();
