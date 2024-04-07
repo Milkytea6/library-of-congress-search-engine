@@ -3,10 +3,11 @@ body{
 }
 #search-box{
     display: flex;
-    align-items: center;
+    justify-content: start;
     height: 100vh; 
+    width: 20vw;
 }
 #search-form-container{
-    border: 5px solid darkblue; 
-    background: linear-gradient(to left, rgb(38, 38, 110), #333333);
+    
+    background: linear-gradient(to left, rgb(56, 56, 184), #444444);
 }
