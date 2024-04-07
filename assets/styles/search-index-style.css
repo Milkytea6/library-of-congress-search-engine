@@ -11,3 +11,6 @@ body{
     
     background: linear-gradient(to left, rgb(56, 56, 184), #444444);
 }
+.btn-block{
+    margin-top: 100px;
+}

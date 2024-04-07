@@ -103,6 +103,8 @@ function handleSearchFormSubmit(event) {
     const queryString = `./search-index.html?q=${searchInput}&format=${formatInput}`;
 
     location.assign(queryString);
+
+    getParams();
 }
 searchForm.addEventListener('submit', handleSearchFormSubmit);
 // Called the GetParams at the end
